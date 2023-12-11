@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Publicar Jobs</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<header>
+    <div class="logo">
+        <img src="../assets/images/Logo.png" alt="Logo del sitio" />
+    </div>
+    <nav>
+        <ul class="menu">
+            <li>
+                <a href="../index.html"><button class="menu-btn ingresar">Volver al inicio</button></a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<body>
+    <div id="app" class="empleos-container">
+        <h1>Publicar Empleos</h1>
+        <form id="formEmpleo">
+            <input type="text" id="nombre_empresa" placeholder="Nombre de la empresa" />
+            <input type="text" id="area" placeholder="Área" />
+            <input type="text" id="nombre_puesto" placeholder="Nombre del puesto" />
+            <input type="text" id="modalidad" placeholder="Modalidad" />
+            <input type="date" id="fecha_publicacion" />
+            <input type="text" id="localidad" placeholder="Localidad" />
+            <textarea id="descripcion" placeholder="Descripción"></textarea>
+            <button type="submit">Crear</button>
+        </form>
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre de la empresa</th>
+                    <th scope="col">Área</th>
+                    <th scope="col">Nombre del puesto</th>
+                    <th scope="col">Descripción</th>
+                    <th scope="col">Modalidad</th>
+                    <th scope="col">Fecha de publicación</th>
+                    <th scope="col">Localidad</th>
+                    <th scope="col" colspan="2">Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="empleos-grid">
+                <!-- Los empleos se añadirán aquí por el código JavaScript -->
+            </tbody>
+        </table>
+    </div>
+    <div id="modalActualizar" style="display: none;">
+        <form id="formActualizar">
+            <!-- Agrega campos de entrada para actualizar aquí -->
+            <input type="text" id="update_nombre_empresa" placeholder="Nombre de la empresa" />
+            <input type="text" id="update_area" placeholder="Área" />
+            <input type="text" id="update_nombre_puesto" placeholder="Nombre del puesto" />
+            <input type="text" id="update_descripcion" placeholder="Descripción" />
+            <input type="text" id="update_modalidad" placeholder="Modalidad" />
+            <input type="date" id="update_fecha_publicacion" placeholder="Fecha de publicación" />
+            <input type="text" id="update_localidad" placeholder="Localidad" />
+            <button type="button" onclick="actualizarEmpleo()">Actualizar Empleo</button>
+        </form>
+    </div>    
+    <footer id="footer">
+        <div class="footer-body">
+            <div class="container-f">
+                <nav>
+                    <ul class="socials">
+                        <li>
+                            <a href="http://www.instagram.com/emplia" target="_blank" title="Instagram">
+                                <img src=".././assets/icons/instagram.ico" alt="Instagram" class="footer-icons" />
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://youtube.com/emplia" target="_blank" title="Youtube">
+                                <img src=".././assets/icons/youtube.ico" alt="Youtube" class="footer-icons" />
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://www.linkedin.com/emplia" target="_blank" title="Linkedin">
+                                <img src=".././assets/icons/linkedin.ico" alt="Linkedin" class="footer-icons" />
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://www.facebook.com/emplia" target="_blank" title="Facebook">
+                                <img src=".././assets/icons/facebook.ico" alt="Facebook" class="footer-icons" />
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://www.twitter.com/emplia" target="_blank" title="Twitter">
+                                <img src=".././assets/icons/gorjeo.ico" alt="Twitter" class="footer-icons" />
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="footer-content">
+                    <p>© EMPLIA 2023, Todos los Derechos Reservados</p>
+                    <p>Somos la comunidad que te conecta con tu futuro.</p>
+                    <ul class="socials">
+                        <li>
+                            <a href="https://www.emplia.com/privacidad">Política de privacidad</a>
+                        </li>
+                        <li>
+                            <a href="https://www.emplia.com/condiciones">Condiciones de uso</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+<script src=".././assets/js/publicar_empleo.js"></script>
+</body>
+</html>

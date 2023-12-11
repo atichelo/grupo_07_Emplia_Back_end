@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ver selección - EsteJobs</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="../assets/images/Logo.png" alt="Logo del sitio">
+        </div>
+        <nav>
+            <ul class="menu">
+                <li><a href="../index.html"><button class="menu-btn ingresar">Volver al inicio</button></a></li>
+            </ul>
+        </nav>
+    </header>
+    <body>
+        <table id="tablaSeleccion">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre de la empresa</th>
+                    <th scope="col">Área</th>
+                    <th scope="col">Nombre del puesto</th>
+                    <th scope="col">Descripción</th>
+                    <th scope="col">Modalidad</th>
+                    <th scope="col">Fecha de publicación</th>
+                    <th scope="col">Localidad</th>
+                    <th scope="col" colspan="1">Seleccionar</th>
+                </tr>
+            </thead>
+            <tbody id="empleos-grid"></tbody>
+        </table>
+        <button id="enviar-cv" class="btncv">Enviar CV</button>
+    <footer id="footer">
+        <div class="footer-body">
+            <div class="container-f">
+                <nav>
+                    <ul class="socials">
+                        <li>
+                            <a href="http://www.instagram.com/emplia" target="_blank" title="Instagram">
+                                <img src=".././assets/icons/instagram.ico" alt="Instagram" class="footer-icons">
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="footer-content">
+                    <p>© EMPLIA 2023, Todos los Derechos Reservados</p>
+                    <p>Somos la comunidad que te conecta con tu futuro.</p>
+                    <ul class="socials">
+                        <li><a href="https://www.emplia.com/privacidad">Política de privacidad</a></li>
+                        <li><a href="https://www.emplia.com/condiciones">Condiciones de uso</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="../assets/js/ver_seleccion.js"></script>
+</body>
+
+</html>

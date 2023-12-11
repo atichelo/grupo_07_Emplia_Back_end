@@ -1,0 +1,225 @@
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--color-principal);
+  color: var(--color-terciario);
+}
+
+/* logo */
+.logo img {
+  height: var(--tamano-logo);
+  width: var(--ancho-logo);
+}
+
+/* Estilos para el menú */
+.menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 5px;
+  flex-direction: row;
+  align-items: center;
+}
+
+.menu li {
+  margin-right: 20px;
+}
+
+.menu-btn {
+  text-decoration: none;
+  font-weight: bold;
+  padding: var(--padding-general);
+  border-radius: var(--radio-borde-general);
+  font-family: var(--fuente-principal);
+  font-size: var(--tamano-fuente-p);
+  width: 150px; /* Ajustar el ancho */
+  margin-right: var(--margen-general); /* Ajustar el margen */
+  margin-top: 5px;
+}
+
+.menu-btn a {
+  text-decoration: none; /* Saca el subrayado */
+  color: inherit; /* Hereda el color del texto del elemento padre */
+}
+
+.cuenta-empresas {
+  background-color: var(--color-principal);
+  color: var(--color-terciario);
+}
+
+.cuenta-empresas:hover {
+  background-color: var(--color-secundario);
+}
+
+.publica-gratis {
+  background-color: var(--color-principal);
+  color: var(--color-secundario);
+}
+
+.publica-gratis:hover {
+  background-color: var(--color-principal);
+  color: var(--color-cuaternario);
+}
+
+.ingresar {
+  background-color: var(--color-terciario);
+  color: var(--color-secundario);
+  border: 2px solid var(--color-secundario);
+}
+
+.ingresar:hover {
+  background-color: var(--color-secundario);
+  color: var(--color-terciario);
+}
+@media (max-width: 600px) {
+  .menu-btn .ingresar::before{ 
+    content: "→";
+    color: var(--color-cuaternario);
+  }
+}
+
+.crear-cuenta {
+  background-color: var(--color-secundario);
+  color: var(--color-terciario);
+  border: 2px solid var(--color-terciario);
+}
+
+.crear-cuenta:hover {
+  background-color: var(--color-cuaternario);
+} 
+
+/* Para tablets */
+@media (max-width: 768px) {
+  .menu {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .menu li {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+}
+
+/* Para teléfonos */
+@media (max-width: 480px) {
+  .menu {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .menu li {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+}
+
+/* Estilo para el menú desplegable */
+.menu-desplegable {
+  display: none;
+}
+
+.hamburger:focus + .menu-desplegable,
+.menu-desplegable:focus-within {
+  display: block;
+}
+
+.menuh {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menuh li {
+  margin-bottom: var(--margin-general);
+}
+
+.menuh li a {
+  display:inline;
+  text-decoration: none;
+  color: var(--color-quinario);
+  font-size: var(--tamano-fuente-p)
+
+}
+
+/* Estilo para el botón del menú hamburguesa */
+.hamburger {
+  font-size: 30px;
+  display: none;
+}
+
+/* Estilo para el menú cuando está oculto */
+.menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 5px;
+}
+
+/* Mostrar el menú hamburguesa en pantallas pequeñas */
+@media (max-width: 768px) {
+  
+ /* Mostrar el botón del menú hamburguesa */
+ .hamburger {
+    display:block; 
+ }
+
+ /* Ocultar el menú principal en pantallas pequeñas */
+ .menu { 
+    display:none; 
+ }
+
+ /* Mostrar el menú desplegable cuando se hace clic en el botón hamburguesa */
+ .hamburger:focus + .menu-desplegable,
+ .menu-desplegable:focus-within { 
+    display:block; 
+ }
+}
+
+
+/* Para pantallas grandes */
+@media (min-width: 1000px) {
+  .hamburger,
+  .menuh {
+    display: none;
+  }
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  min-width: 150px;
+  z-index: 1;
+  background-color: var(--color-terciario);
+  border-radius: var(--radio-borde-general);
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); 
+  padding-top: var( --padding-general);
+  padding-bottom: var(--padding-general);
+  font-size: var(--tamano-fuente-p)!important;
+  text-decoration: none;
+  font-family: var(--fuente-principal);
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.dropbtn {
+  background-color: var(--color-terciario);
+  color: var(--color-secundario);
+  border: 2px solid var(--color-secundario);
+  border-radius: var(--radio-borde-general);
+  font-family: var(--fuente-principal);
+  font-weight: bold;
+  font-size: var(--tamano-fuente-p);
+  width: 150px; /* Ajustar el ancho */
+  margin-right: var(--margen-general); /* Ajustar el margen */
+  margin-top: 5px;
+}
+.dropbtn:hover {
+  background-color: var(--color-secundario);
+  color: var(--color-terciario);
+}
+
+@media screen and (max-width: 600px) {
+  .dropdown-content {
+      position: static;
+  }
+}

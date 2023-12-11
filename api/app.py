@@ -7,16 +7,20 @@ import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from flask_mysqldb import MySQL
-
+from flask import render_template
+app = Flask(__name__, static_folder='D:\Documents\grupo_07_Emplia_frontend')
 app = Flask(__name__)
 CORS(app)
-# Configuración de MySQL
+
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = '1234'
 app.config['MYSQL_DB'] = 'empleos'
 
 mysql = MySQL(app)
+
+def render_json(data):
+    return jsonify(data)  # <-- Devuelve una respuesta JSON con los datos
 
 @app.route('/empleos', methods=['GET', 'POST'])
 def empleos():
@@ -54,6 +58,7 @@ def empleo(id):
         cur.execute("SELECT * FROM empleos WHERE id = %s", (id,))
         empleo = cur.fetchone()
         return jsonify(empleo)
+        
 @app.route('/bdempleos')
 @cross_origin()  # <-- Permite solicitudes CORS para esta ruta
 def bdempleos():
@@ -63,29 +68,61 @@ def bdempleos():
     cur.close()
     return jsonify(empleos)
 
-@app.route('/empleoshoy', methods=['GET'])
-@cross_origin()  # <-- Permite solicitudes CORS para esta ruta
-def empleoshoy():
+@app.route('/bdlocalidades')
+@cross_origin()  
+def bdlocalidades():
     cur = mysql.connection.cursor()
-
-    cur.execute("SELECT DISTINCT area FROM Empleos")
-    areas = [area[0] for area in cur.fetchall()]
-
-    cur.execute("SELECT DISTINCT modalidad FROM Empleos")
-    modalidades = [modalidad[0] for modalidad in cur.fetchall()]
-
-    cur.execute("SELECT DISTINCT fecha_publicacion FROM Empleos")
-    fechas_publicacion = [str(fecha_publicacion[0]) for fecha_publicacion in cur.fetchall()]
-
+    cur.execute("SELECT * FROM Empleos")  # Consulta todos los datos de la tabla 'Empleos'
+    localidades = [empleo[7] for empleo in cur.fetchall()]  # Extrae la localidad de cada fila (asumiendo que la localidad es la columna 7)
     cur.close()
+    return jsonify(localidades)  # Devuelve las localidades como una respuesta JSON
 
-    return jsonify({'areas': areas, 'modalidades': modalidades, 'fechas_publicacion': fechas_publicacion})
+@app.route('/empleoshoy', methods=['GET', 'POST'])
+@cross_origin()
+def empleoshoy():
+    global result  # Indicar que quieres usar la variable global result
+    cur = mysql.connection.cursor()  # Crear un solo cursor
 
+    if request.method == 'POST':
+        area = request.form.get('area') 
+        modalidad = request.form.get('modalidad') 
+        fecha_publicacion = request.form.get('fecha_publicacion') 
+            
+        if area and modalidad and fecha_publicacion:  
+            cur.execute("SELECT * FROM Empleos WHERE area = %s AND modalidad = %s AND fecha_publicacion = %s", (area, modalidad, fecha_publicacion))
+        elif area and modalidad:  
+            cur.execute("SELECT * FROM Empleos WHERE area = %s AND modalidad = %s", (area, modalidad))
+        elif area and fecha_publicacion: 
+            cur.execute("SELECT * FROM Empleos WHERE area = %s AND fecha_publicacion = %s", (area, fecha_publicacion))
+        elif modalidad and fecha_publicacion: 
+            cur.execute("SELECT * FROM Empleos WHERE modalidad = %s AND fecha_publicacion = %s", (modalidad, fecha_publicacion))
+        elif area: 
+            cur.execute("SELECT * FROM Empleos WHERE area = %s", (area,))
+        elif modalidad:  
+            cur.execute("SELECT * FROM Empleos WHERE modalidad = %s", (modalidad,))
+        elif fecha_publicacion: 
+            cur.execute("SELECT * FROM Empleos WHERE fecha_publicacion = %s", (fecha_publicacion,))
+        # Obtener los datos de la consulta y asignarlos a result
+        result = cur.fetchall()
+    elif request.method == 'GET': 
+        cur.execute("SELECT DISTINCT area FROM Empleos")
+        areas = [row[0] for row in cur.fetchall()]
+        cur.execute("SELECT DISTINCT modalidad FROM Empleos")
+        modalidades = [row[0] for row in cur.fetchall()]
+        cur.execute("SELECT DISTINCT fecha_publicacion FROM Empleos")
+        fechas_publicacion = [row[0] for row in cur.fetchall()]
+    
+        result = {
+            "areas": areas,
+            "modalidades": modalidades,
+            "fechas_publicacion": fechas_publicacion
+        }
+    
+    cur.close()
+    return render_json(result)
 
 @app.route('/localidades/<nombre>', methods=['GET'])
 def obtener_localidades_por_nombre(nombre):
-    #if not nombre.isalpha():
-        #abort(400, description="La entrada debe ser solo letras.")
     url = f"https://apis.datos.gob.ar/georef/api/localidades?nombre={nombre}*"
     response = requests.get(url)
     if response.status_code != 200:
@@ -95,6 +132,19 @@ def obtener_localidades_por_nombre(nombre):
     response = jsonify(response_data)
     response.headers.add('Access-Control-Allow-Origin', '*')  # Agrega el encabezado CORS
     return response
+
+@app.route('/provincias/<nombre>', methods=['GET'])
+def obtener_provincias_por_nombre(nombre):
+    url = f"https://apis.datos.gob.ar/georef/api/provincias?nombre={nombre}*"
+    response = requests.get(url)
+    if response.status_code != 200:
+        abort(500, description="Error al comunicarse con la API de Georef.")
+    provincias = response.json()['provincias']
+    response_data = [provincia['nombre'] for provincia in provincias if provincia['nombre'].upper().startswith(nombre.upper())]
+    response = jsonify(response_data)
+    response.headers.add('Access-Control-Allow-Origin', '*')  # Agrega el encabezado CORS
+    return response
+
 
 @app.route('/recuperar', methods=['POST'])
 @cross_origin()
@@ -136,6 +186,41 @@ def test_db():
     except Exception as e:
         return "No se pudo conectar a la base de datos: " + str(e)
 
+@app.route('/datos', methods=['POST'])
+def datos():
+    cur = mysql.connection.cursor()
+    nuevo_dato = request.get_json()
+    cur.execute("INSERT INTO datos (nombre, apellido, correo, telefono, direccion, resumen, habilidades, certificaciones, cursos, idiomas, logros, referencias, cv) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", (nuevo_dato['nombre'], nuevo_dato['apellido'], nuevo_dato['correo'], nuevo_dato['telefono'], nuevo_dato['direccion'], nuevo_dato['resumen'], nuevo_dato['habilidades'], nuevo_dato['certificaciones'], nuevo_dato['cursos'], nuevo_dato['idiomas'], nuevo_dato['logros'], nuevo_dato['referencias'], nuevo_dato['cv']))
+    mysql.connection.commit()
+    return jsonify(nuevo_dato)
+
+@app.route('/educacion', methods=['POST'])
+def educacion():
+    cur = mysql.connection.cursor()
+    nueva_educacion = request.get_json()
+    
+    required_fields = ['usuario_id', 'titulo', 'institucion', 'inicio', 'fin']
+    if not all(field in nueva_educacion for field in required_fields):
+        return jsonify({'error': 'Missing data'}), 400
+    query = '''INSERT INTO educacion (usuario_id, titulo, institucion, inicio, fin)
+               VALUES (%s, %s, %s, %s, %s)'''
+    cursor.execute(query, (nueva_educacion['usuario_id'], nueva_educacion['titulo'], nueva_educacion['institucion'], nueva_educacion['inicio'], nueva_educacion['fin']))
+    mysql.connection.commit()
+    return jsonify({'status': 'success'}), 201
+
+@app.route('/empleoscv', methods=['POST'])
+def empleoscv():
+    cursor = mysql.connection.cursor()
+    n_empleo = request.get_json()
+    
+    required_fields = ['usuario_id', 'empresa', 'puesto', 'fecha_inicio', 'fecha_fin', 'descripcion']
+    if not all(field in nueva_experiencia for field in required_fields):
+        return jsonify({'error': 'Missing data'}), 400
+    query = '''INSERT INTO empleoscv (usuario_id, empresa, puesto, fecha_inicio, fecha_fin, descripcion)
+               VALUES (%s, %s, %s, %s, %s, %s)'''
+    cursor.execute(query, (nueva_experiencia['usuario_id'], nueva_experiencia['empresa'], nueva_experiencia['puesto'], nueva_experiencia['fecha_inicio'], nueva_experiencia['fecha_fin'], nueva_experiencia['descripcion']))
+    mysql.connection.commit()
+    return jsonify({'status': 'success'}), 201
 
 if __name__ == '__main__':
     app.run(port=5000, debug=True)

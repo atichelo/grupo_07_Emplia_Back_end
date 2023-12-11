@@ -1,0 +1,33 @@
+body {
+  font-family: var(--fuente-principal);
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-quinario);
+}
+
+h1 {
+  font-size: var(--tamano-fuente-h1);
+}
+
+h2 {
+  font-size: var(--tamano-fuente-h2);
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0px;
+}
+
+li {
+  margin-bottom: var(--margen-general);
+}
+
+button {
+  padding: var(--padding-general);
+  background-color: var(--color-secundario);
+  color: var(--color-terciario);
+  border: none;
+  border-radius: var(--radio-borde-general);
+  cursor: pointer;
+  border: 2px solid var(--color-terciario);
+}

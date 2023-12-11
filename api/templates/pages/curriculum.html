@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curriculum Vitae - EsteJobs</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="../assets/images/Logo.png" alt="Logo del sitio">
+        </div>
+        <nav>
+            <ul class="menu">
+                <li><a href="../index.html"><button class="menu-btn ingresar">Volver al inicio</button></a></li>
+            </ul>
+        </nav>
+    </header>
+        <main>
+            <section class="section-c">
+                <h1 class="display-4">Currículum Vitae</h1>
+                <form onsubmit="guardarDatos(event)"> 
+                    <div id="step1" class="step-form active">
+                        <h2>Información de Contacto:</h2>
+                        <div class="mb-3">
+                            <label for="nombre">Nombres:</label>
+                            <input type="text" id="nombre" required class="form-control" placeholder="Nombres">
+                            <label for="apellido">Apellido:</label>
+                            <input type="text" id="apellido" required class="form-control" placeholder="Apellido">
+                            <label for="localidad">Localidad:</label>
+                            <input type="email" id="correo" required class="form-control" placeholder="Dirección de correo electrónico">
+                            <label for="telefono">Número de teléfono:</label>
+                            <input type="tel" id="telefono" required class="form-control" placeholder="Número de teléfono">
+                            <label for="direccion">Dirección de residencia:</label>
+                            <input type="text" id="localidad" required class="form-control" placeholder="Localidad">
+                            <label for="provincia">Provincia:</label>
+                            <input type="text" id="provincia" required class="form-control" placeholder="Provincia">
+                            <label for="correo">Dirección de correo electrónico:</label>
+                            <input type="text" id="direccion" required class="form-control" placeholder="Dirección de residencia">
+                        </div>                        
+                        <button class="cv" id="next1" onclick="nextStep(2)">Siguiente paso</button>
+                    </div>
+                    <!-- Perfil profesional -->
+                    <div id="step2" class="step-form">
+                        <h2>Perfil profesional:</h2>
+                        <div class="mb-3">
+                            <label for="resumen" class="form-label"></label>
+                            <textarea id="resumen" name="resumen" rows="4" class="form-control"></textarea>
+                        </div>
+                        <button class="cv" onclick="previousStep(1)">Anterior</button>
+                        <button class="cv" onclick="nextStep(3)">Siguiente paso</button>
+                    </div>
+                    <div id="step3" class="step-form">
+                        <h2>Experiencia Laboral:</h2>
+                        <div id="experiencia-container">
+                            <!-- Experiencia laboral 1 -->
+                            <div class="mb-3 grid-container">
+                                <div class="empuesto">
+                                    <label for="empresa" class="form-label">Nombre de la empresa:</label>
+                                    <input type="text" id="empresa" name="empresa" class="form-control"
+                                        placeholder="Ingrese el nombre de la empresa">
+                                    <label for="puesto" class="form-label">Puesto:</label>
+                                    <input type="text" id="puesto" name="puesto" class="form-control"
+                                        placeholder="Ingrese su puesto en la empresa">
+                                </div>
+                                <div class="fechas-container">
+                                    <label for="fecha_inicio" class="form-label ini">Fecha de inicio:</label>
+                                    <input type="date" id="fecha_inicio" name="fecha_inicio" class="form-control">
+                                    <label for="fecha_fin" class="form-label fin">Fecha de fin:</label>
+                                    <input type="date" id="fecha_fin" name="fecha_fin" class="form-control">
+                                </div>
+                                <label class="form-label">Descripción del trabajo:</label>
+                                <textarea id="descripcion" name="descripcion" rows="4" class="form-control" placeholder="Describa sus responsabilidades y logros"></textarea>
+                            </div>
+                        </div>
+                        <button class="cv" onclick="addExperience()">Agregar Experiencia</button>
+                        <button class="cv" onclick="previousStep(2)">Anterior</button>
+                        <button class="cv" onclick="nextStep(4)">Siguiente paso</button>
+                    </div>
+                    <div id="step4" class="step-form">
+                        <h2>Educación</h2>
+                        <div id="educacion-container"></div>
+                        <div class="mb-3 grid-containere">
+                            <label for="titulo" class="form-label titulo">Título obtenido:</label>
+                            <input type="text" id="titulo" name="titulo" class="form-control grid-input" placeholder="Ej.:Técnico en electrónica">
+
+                            <label for="institucion" class="form-label insti">Institución:</label>
+                            <input type="text" id="institucion" name="institucion" class="form-control grid-input" placeholder="Ingrese el nombre de la institución">
+
+                            <label for="inicio" class="form-label fini">Fecha de inicio:</label>
+                            <input type="date" id="inicio" name="inicio" class="form-control grid-input">
+
+                            <label for="fin" class="form-label ffin">Fecha de finalización (si corresponde):</label>
+                            <input type="date" id="fin" name="fin" class="form-control grid-input">
+                        </div>
+                        <button class="cv" onclick="addEducation()">Agregar estudios</button>
+                        <button class="cv" onclick="previousStep(3)">Anterior</button>
+                        <button class="cv" onclick="nextStep(5)">Siguiente paso</button>
+                    </div>
+                    <div id="step5" class="step-form">
+                        <h2>Habilidades:</h2>
+                        <div class="mb-3">
+                            <textarea id="habilidades" name="habilidades" rows="4" class="form-control"></textarea>
+                        </div>
+                        <button class="cv" onclick="previousStep(4)">Anterior</button>
+                        <button class="cv" onclick="nextStep(6)">Siguiente paso</button>
+                        </div>
+                        <div id="step6" class="step-form">
+                            <h2>Certificaciones y Cursos Adicionales:</h2>
+                            <div class="mb-3">
+                                <h6>Certificaciones profesionales:</h6>
+                                <textarea id="certificaciones" name="certificaciones" rows="4" class="form-control"></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <h6>Cursos Adicionales o de formación:</h6>
+                                <textarea id="cursos" name="cursos" rows="4" class="form-control"></textarea>
+                            </div>
+                            <h2>Idiomas:</h2>
+                            <div class="mb-3">
+                                <h6>Idiomas y nivel de competencia:</h6>
+                                <textarea id="idiomas" name="idiomas" rows="4" class="form-control"></textarea>
+                            </div>
+                            <button class="cv" onclick="previousStep(5)">Anterior</button>
+                            <button class="cv" onclick="nextStep(7)">Siguiente paso</button>
+                        </div>
+                        <div id="step7" class="step-form">
+                            <h2>Logros y Premios (opcional):</h2>
+                            <div class="mb-3">
+                                <textarea id="logros" name="logros" rows="4" class="form-control"></textarea>
+                            </div>
+                            <h2>Referencias:</h2>
+                            <div class="mb-3">
+                                <h6>Nombres y datos de contacto de referencias:</h6>
+                                <textarea id="referencias" name="referencias" rows="4" class="form-control"></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <h6>Currículum Vitae (Adjuntar archivo PDF):</h6>
+                                <input type="file" class="form-control" id="cv" name="cv">
+                            </div>
+                            <button class="cv" onclick="previousStep(6)">Anterior</button>
+                            <button type="submit" class="cv"> Guardar currículum</button>
+                        </div>
+                </form>
+            </section>
+        </main>
+    <footer id="footer">
+        <div class="footer-body">
+            <div class="container-f">
+                <nav>
+                    <ul class="socials">
+                        <li>
+                            <a href="http://www.instagram.com/emplia" target="_blank" title="Instagram">
+                                <img src=".././assets/icons/instagram.ico" alt="Instagram" class="footer-icons">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://youtube.com/emplia" target="_blank" title="Youtube">
+                                <img src=".././assets/icons/youtube.ico" alt="Youtube" class="footer-icons">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://www.linkedin.com/emplia" target="_blank" title="Linkedin">
+                                <img src=".././assets/icons/linkedin.ico" alt="Linkedin" class="footer-icons">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://www.facebook.com/emplia" target="_blank" title="Facebook">
+                                <img src=".././assets/icons/facebook.ico" alt="Facebook" class="footer-icons">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://www.twitter.com/emplia" target="_blank" title="Twitter">
+                                <img src=".././assets/icons/gorjeo.ico" alt="Twitter" class="footer-icons">
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="footer-content">
+                    <p>© EMPLIA 2023, Todos los Derechos Reservados</p>
+                    <p>Somos la comunidad que te conecta con tu futuro.</p>
+                    <ul class="socials">
+                        <li><a href="https://www.emplia.com/privacidad">Política de privacidad</a></li>
+                        <li><a href="https://www.emplia.com/condiciones">Condiciones de uso</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+<script src=".././assets/js/cvprecarga.js"></script>
+<script src=".././assets/js/datos_cv.js"></script>
+<script src=".././assets/js/step_cv.js"></script>
+<script src=".././assets//js/logueado.js"></script>
+<script src=".././assets/js/enviarcv.js"></script>
+</body>
+</html>

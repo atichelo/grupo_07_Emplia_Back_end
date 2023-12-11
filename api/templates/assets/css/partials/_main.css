@@ -1,0 +1,1093 @@
+.search-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: var(--padding-general);
+  padding-bottom: var(--padding-general);
+}
+
+input[type="text" ], 
+input[type="password" i], 
+input[type="email"], 
+input[type="tel"], 
+input[type="file"] {
+  width: var(--ancho-input-texto);
+  padding: var(--padding-general);
+  border: 2px solid var(--color-novenario);
+  border-radius: var(--radio-borde-general);
+  margin-top: var(--margen-general);
+  margin-bottom: var(--margen-general);
+  background-color: var(--color-terciario)
+}
+
+input[type="text"]:focus, 
+input[type="password" i]:focus, 
+input[type="email"]:focus, 
+input[type="tel"]:focus, 
+input[type="file"]:focus {
+  outline: none;
+  border-color: var(--color-secundario);
+  box-shadow: 0px 0px 5px rgba(4, 137, 152, 0.5); 
+}
+.custom-file-upload {
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+  background: linear-gradient(to right, var(--color-principal), var(--color-secundario));
+  color:var(--color-terciario);
+  border-color: var(--color-secundario);
+  box-shadow: 0px 0px 5px rgba(4, 137, 152, 0.5);
+  border-radius: var(--radio-borde-general);
+  text-align: center; 
+}
+
+.custom-file-upload:hover {
+  background: linear-gradient(to right, var(--color-secundario), var(--color-principal));
+}
+.centrado {
+  text-align: center;
+}
+
+.iconos {
+  display: flex;
+  justify-content: center;
+}
+
+button.icono-registro {
+  width: auto;
+  border: none;
+  margin-top: var(--margen-general);
+  margin-bottom: var(--margen-general);
+  padding: 0;
+  background-color: transparent;
+  color:transparent;
+}
+
+button.icono-registro img {
+    width:auto;
+    height:auto;
+    padding: var(--padding-general);
+}
+
+.confirmarRegistro[type="submit" i], 
+.continuarBtn,
+.continuarBtn1 {
+  appearance: auto;
+  user-select: none;
+  background-color: var(--color-terciario); /* Cambia el color de fondo según tus preferencias */
+  color: var(--color-secundario);
+  padding: var(--padding-general) 20px; /* Ajusta el padding */
+  border: 2px solid var(--color-secundario);
+  border-radius: var(--radio-borde-general);
+  font-size: var(--tamano-fuente-p);
+  cursor: pointer; /* Cambia el cursor al pasar por encima del botón */
+  text-decoration: none;
+  font-weight: bold;
+  font-family: var(--fuente-principal);
+  text-align: center;
+  margin-top: var(--margen-general);
+  margin-bottom: var(--margen-general);
+  width: 323.2px;
+}
+.confirmarRegistro[type="submit" i] {
+  padding: var(--padding-general);
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.continuarBtn {
+  margin-top: 1%;
+}
+.continuarBtn1 {
+  margin-bottom: 15%;
+}
+.confirmarRegistro[type="submit" i]:hover,
+.continuarBtn:hover,
+.continuarBtn1:hover {
+  background-color: var(--color-secundario);
+  color: var(--color-terciario);
+  text-align: center;
+}
+.continuarH1 {
+  display: flex; 
+  justify-content: center; 
+  gap: 20px;
+}
+
+@media screen and (max-width: 600px) {
+  .continuarBtn,
+  .continuarBtn1,
+  .continuarH1,
+  .confirmarRegistro[type="submit" i] {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+}
+
+.banner {
+  position: relative;
+  width: auto;
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#myVideo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.form-wrapper {
+  position: relative;
+  bottom: -22%;
+  left: 0%;
+  width: 98.7%;
+  height: 95px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-principal);
+  padding: var(--padding-general);
+  margin-bottom: -13%;
+}
+
+/* Estilo para el contenedor principal */
+.job-search-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-quinario); 
+}
+
+.job-select,
+.location-select {
+  width: calc(var(--ancho-input-texto) - 30px);
+  height: 40px;
+  font-size: var(--tamano-fuente-p);
+  border-radius: var(--radio-borde-general);
+  background-color: var(--color-terciario);
+  color: var(--color-octonario);
+  cursor: pointer;
+  margin-right: var(--margen-general); /* Agregar margen derecho solo a "Puesto" */
+  display: flex;
+  align-items: center; /* Centrar el texto verticalmente */
+  background-repeat: no-repeat;
+  background-size: 20px;
+  background-position: 5% center;
+  text-align: center;
+  justify-content: center;
+  appearance: none; /* Elimina el estilo predeterminado del navegador */
+}
+
+.location-select {
+  width: 268.400px;
+  height: 38.400px;
+  padding: 0px;
+  color: var(--color-octonario)
+}
+.job-select.job-icon {
+  background-image: url("D:/Documents/grupo_07_Emplia_frontend/Emplia/assets/icons/busqueda.ico");
+  display: block;
+}
+
+.location-select.location-icon {
+  background-image: url("D:/Documents/grupo_07_Emplia_frontend/Emplia/assets/icons/marcador.ico");
+  display: block;
+}
+
+.icon-input:hover,
+.job-select:hover,
+.location-select:hover {
+  background-color: var(--color-quinario);
+}
+
+button[type="submit"] {
+  text-decoration: none;
+  font-weight: bold;
+  padding: var(--padding-general);
+  border-radius: var(--radio-borde-general);
+  font-family: var(--fuente-principal);
+  font-size: var(--tamano-fuente-p);
+  width: var(--ancho-logose);
+  border: 2px solid var(--color-terciario);
+  background-color: var(--color-secundario);
+  color: var(--color-terciario);
+  margin-left: 0; /* Eliminar cualquier margen izquierdo */
+}
+
+button[type="submit"]:hover {
+  background-color: var(--color-cuaternario);
+  color: var(--color-terciario);
+}
+.button-search {
+    text-decoration: none;
+    font-weight: bold;
+    padding: var(--padding-general);
+    border-radius: var(--radio-borde-general);
+    font-family: var(--fuente-principal);
+    font-size: var(--tamano-fuente-p);
+    width: var(--ancho-logose);
+    border: 2px solid var(--color-terciario);
+    background-color: var(--color-secundario);
+    color: var(--color-terciario);
+    margin-left: 0;
+}
+.button-search:hover {
+  background-color: var(--color-cuaternario);
+  color: var(--color-terciario);
+}
+
+@media screen and (max-width: 600px) {
+  .banner {
+    height: 30vh; /* Ajusta la altura del banner */
+  }
+
+  #myVideo {
+    height: 100%; /* Ajusta la altura del video al banner */
+  }
+
+  .form-wrapper {
+    bottom: -10%; /* Modifica la posición del formulario */
+    width: 100%; /* Ajusta el ancho del formulario */
+    height: 100px; /* Ajusta la altura del formulario */
+  }
+
+  .job-search-form {
+    flex-direction: column; /* Cambia la dirección del contenedor a columna */
+    align-items: stretch; /* Estira los elementos a lo ancho del contenedor */
+    width: 100%;
+  }
+
+  .job-select {
+    width: 100%; /* Ajusta el ancho del selector de trabajo */
+    margin-right: 0; /* Elimina el margen derecho */
+    height: 30px;
+    margin-bottom: 5px;
+  }
+  .location-select {
+    width: 100%; /* Ajusta el ancho del selector de ubicación */
+    margin-left: 0; /* Elimina el margen izquierdo */
+    height: 30px;
+    margin-bottom: 5px;
+  }
+  button[type="submit"] {
+    margin-left: 0;
+    width: 100%; /* Ajusta el ancho del botón de envío */
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .button-search {
+    margin-left: 0;
+    width: 100%; /* Ajusta el ancho del botón de envío */
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .job-select.job-icon {
+    background-image: none;
+  }
+  .location-select.location-icon {
+    background-image: none;
+  }
+}
+
+/* Estilos para la sección de logo */
+section {
+  background-color: #f8f8f8; 
+  padding: 0px; 
+  text-align: center; 
+}
+
+.logos {
+  display: flex;
+  flex-wrap: wrap;
+  max-height: 157px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3%;
+  margin-bottom: 1%;
+  border-radius: var(--radio-borde-general);
+  background-image: linear-gradient(to right, #0a0926, #04899898); /* Fondo degradado */
+  background-position: center bottom 100%;
+  background-size: auto;
+}
+
+.logos img {
+  height: var(--tamano-logose);
+  width: var(--ancho-logose);
+  box-shadow: 5px 5px 30px var(--color-principal);
+  margin-right: 30px;
+  margin-left: 10px;
+  margin-top: 2.2%;
+  margin-bottom: 2%;
+  border-radius: var(--radio-borde-general);
+}
+
+/* Estilos para pantallas pequeñas (menores a 768px) */
+@media screen and (max-width: 600px) {
+  .logos {
+    width: 0px; 
+    height: 0px;
+  }
+
+  .logos img {
+    width: 0px;
+    height: 0px; 
+    margin-right: 0; 
+  }
+  section {
+    background-color: #f8f8f8; 
+    padding: 0px; 
+    text-align: center; 
+  }
+}
+
+.search-section input[type="text"] {
+  margin-top: calc(var(--margen-general) + 20px);
+}
+
+/* Estilo para la sección de empleos */
+.contenedor-principal {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.container {
+  justify-content: flex-start;
+  margin-right: var(--margen-general);
+  width: 40%;
+}
+
+.empresa-cont {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  background-color: var(--color-terciario);
+  padding: var(--padding-general);
+  border: 2px solid var(--color-novenario);
+  border-radius: var(--radio-borde-general);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 15px;
+}
+
+.filtros {
+  background-color: var(--color-terciario);
+  border: 1px solid var(--color-quinario);
+  border-radius: var(--radio-borde-general);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 95%;
+  justify-content: center;
+  flex-direction: column;
+  align-items: stretch;
+  margin-left: 13px;
+  height: 80%;
+ 
+}
+
+.empleos {
+  height: 93%;
+  width: 95%;
+  background-color: var(--color-terciario);
+  padding: var(--padding-general);
+  border: 1px solid var(--color-quinario);
+  border-radius: var(--radio-borde-general);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
+}
+.empresa {
+  width: 57%;
+  background-color: var(--color-terciario);
+  padding: var(--padding-general);
+  border: 1px solid var(--color-quinario);
+  border-radius: var(--radio-borde-general);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
+}
+
+.container h1,
+.empresa h1,
+.destacados h1,
+.testimonios h1 {
+  font-size: var(--tamano-fuente-h1);
+  color: var(--color-terciario);
+  text-align: center;
+  margin-bottom: 20px;
+  padding: var(--padding-general);
+  border-radius: var(--radio-borde-general);
+  background-image: url("D:/Documents/grupo_07_Emplia_frontend/Emplia/assets/images/fondo-titulo.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  grid-column: 1 / -1; /* Ocupa todas las columnas disponibles */
+}
+
+table.empleos {
+  width: 100%;
+}
+
+.filtros h1 {
+  font-size: var(--tamano-fuente-h1);
+  padding: var(--padding-general);
+  margin-top: 0%;
+  background-color: var(--color-secundario);
+  color: var(--color-terciario);
+  border-radius: var(--radio-borde-general);
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border: linear-gradient(to left, var(--color-principal), var(--color-secundario));
+  background-image: linear-gradient(to left, var(--color-principal), var(--color-secundario));
+  -webkit-background-clip: padding-box;
+  background-clip:none;
+}
+
+.filter-group label {
+  font-weight: bold;
+  color: var(--color-secundario);
+  text-align: center;
+  padding: 10px 0;
+}
+
+.filter-group select {
+  width: 90%;
+  padding: var(--padding-general);
+  border: 2px solid var(--color-novenario);
+  border-radius: var(--radio-borde-general);
+  background-color: var(--color-terciario);
+  color: var(--color-octonario);
+  font-family: var(--fuente-principal);
+  margin: var(--margen-general);
+  text-align: center;
+}
+
+.filter-group select option {
+  background-color: var(--color-terciario);
+  color: var(--color-principal);
+  padding: 10px 0;
+}
+
+.filter-group select:focus {
+  outline: none;
+  border-color: var(--color-secundario);
+  box-shadow: 0px 0px 5px rgba(4, 137, 152, 0.5);
+}
+
+.empresa-logo {
+  width: var(--ancho-logose);
+  height: var(--tamano-logose);
+  border-radius: var(--radio-borde-general);
+}
+
+.empresa-nombre {
+  font-size: var(--tamano-fuente-h2);
+  font-weight: bold;
+  width: 20%;
+  margin-right: 5%;
+  margin-left: 5%;
+}
+
+.empresa-sector {
+  text-align: center;
+  color: var(--color-secundario);
+  margin-right: var(--margen-general);
+  margin-right: 3%;
+}
+
+.empresa-sectorp {
+  color: var(--color-secundario);
+  margin-right: 9.20%;
+}
+
+.empresa-sectore {
+  color: var(--color-secundario);
+ margin-right: 5.92%;
+}
+.verSeleccion, .empresa-boton {
+  width: var(--ancho-logose);
+  background-color: var(--color-terciario); /* Cambia el color de fondo según tus preferencias */
+  color: var(--color-secundario);
+  padding: var(--padding-general) 20px; /* Ajusta el padding */
+  border: 2px solid var(--color-secundario);
+  border-radius: var(--radio-borde-general);
+  font-size: var(--tamano-fuente-p);
+  cursor: pointer; /* Cambia el cursor al pasar por encima del botón */
+  text-decoration: none;
+  font-weight: bold;
+  font-family: var(--fuente-principal);
+}
+.verSeleccion {
+  margin-top: 4%;
+  margin-bottom: 0;
+  text-align: center;
+}
+.verSeleccion:hover, .empresa-boton:hover {
+  background-color: var(--color-secundario);
+  color: var(--color-terciario);
+}
+
+.destacados {
+  background-color: var(--color-terciario);
+  padding: var(--padding-general);
+  border: 1px solid var(--color-quinario);
+  border-radius: var(--radio-borde-general);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-left: var(--margen-general);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* tres columnas de ancho igual */
+  gap: 30px; /* Espacio entre las columnas */
+  width: 97.3%; /* Ancho de destacados */
+}
+
+.btn-destacado h2 {
+  display: block;
+  padding: 60px 0;
+  color: var(--color-quinario);
+  text-align: center;
+  margin: calc(var(--margen-general)*-1);
+  border-top-left-radius: var(--radio-borde-general);
+  border-top-right-radius: var(--radio-borde-general);
+  font-weight: bold;
+  background-image: linear-gradient(to left, var(--color-principal), var(--color-secundario));
+  -webkit-background-clip: padding-box;
+  background-clip: none;
+}
+
+.btn-destacado {
+  width: var(--ancho-input-texto);
+  background-color: var(--color-terciario);
+  color: var(--color-principal);
+  border-radius: var(--radio-borde-general);
+  cursor: pointer; /* Cambia el cursor al pasar por encima del botón */
+  text-decoration: none;
+  font-family: var(--fuente-principal);
+  font-size: var(--tamano-fuente-p);
+  margin: auto;
+  margin-bottom: var(--margen-general);
+  border: 1px solid var(--color-novenario);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  padding: var(--padding-general);
+  align-content: center;
+  grid-row: span 1;
+}
+
+.btn-destacado:hover {
+  background-color: var(--color-septenario);
+  color: var(--color-terciario);
+}
+.btn-destacado h2:hover {
+  background-color: var(--color-principal);
+}
+
+.testimonios {
+  background-color: var(--color-quinario);
+  color: var(--color-principal);
+  font-family: var(--fuente-principal);
+  margin: var(--margen-general);
+  padding: var(--padding-general);
+  border-radius: var(--radio-borde-general);
+  background-color: var(--color-terciario);
+  padding: var(--padding-general);
+  border: 1px solid var(--color-quinario);
+  border-radius: var(--radio-borde-general);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top:15px;
+}
+
+.testimonios ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+.testimonios ul li {
+  text-align: center;
+}
+
+.testimonios ul li img {
+  width: var(--ancho-logose);
+  height: var(--tamano-logose);
+  border-radius: var(--radio-borde-general);
+  box-shadow: 5px 5px 30px var(--color-principal);
+  margin-top: var(--margen-general);
+}
+
+.testimonios ul li h4 {
+  font-size: var(--tamano-fuente-h2);
+  color: var(--color-secundario);
+}
+
+.testimonios ul li p {
+  font-size: var(--tamano-fuente-p);
+}
+
+.testimonios ul li q {
+  font-size: var(--tamano-fuente-p);
+  color: var(--color-octonario);
+}
+
+.section-c {
+  background-color: var(--color-quinario);
+  padding: var(--padding-general);
+}
+
+@media screen and (max-width: 600px) {
+  .search-section input[type="text"] {
+    margin-top: calc(var(--margen-general) + 20px);
+  }
+
+  .contenedor-principal {
+    flex-direction: column; 
+  }
+
+  .container {
+    width: 100%; 
+    margin-right: 0; 
+  }
+
+  .empresa-cont {
+    flex-direction: column; 
+  }
+
+  .filtros, .empleos, .empresa {
+    width: 90%; 
+    margin-left: 8px;
+  }
+
+  .empresa-logo {
+    width: 50%; 
+    height: auto; 
+  }
+
+  .empresa-nombre, .empresa-sector, .empresa-sectorp, .empresa-sectore {
+    width: 90%; 
+    margin-right: 0; 
+    margin-left: 0; 
+  }
+
+  .verSeleccion, .empresa-boton {
+    width: 100%; 
+  }
+
+  .destacados {
+    grid-template-columns: 1fr; 
+    width: 90%; 
+  }
+
+  .btn-destacado {
+    width: 85%; 
+  }
+
+  .testimonios ul {
+    flex-direction: column; 
+  }
+
+  .testimonios ul li img {
+    width: 50%; 
+    height: auto; 
+  }
+}
+
+.display-4 {
+  color: var(--color-principal);
+  font-size: var(--tamano-fuente-h1-banner);
+  font-family: 'arial';
+  font-weight: bold;
+}
+
+.mb-3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: var(--margen-general);
+}
+
+.form-control {
+  width: var(--ancho-input-texto);
+  padding: var(--padding-general);
+  margin-bottom: var(--margen-general);
+  border-radius: var(--radio-borde-general);
+  border: 2px solid var(--color-novenario);
+  color: var(--color-octonario);
+  font-family: var(--fuente-principal);
+  margin-left: var(--margen-general);
+  margin-top: var(--margen-general);
+  height: 49.20px
+}
+#resumen,
+#descripcion,
+#habilidades,
+#certificaciones,
+#cursos,
+#idiomas,
+#logros,
+#referencias {
+  width: 39%;
+  height: 20%;
+}
+.form-control:focus {
+  outline: none;
+  border-color: var(--color-secundario);
+  box-shadow: 0px 0px 5px rgba(4, 137, 152, 0.5);
+}
+
+.form-label {
+  font-weight: bold;
+  background-color: var(--color-quinario);
+  text-align:center;
+}
+
+.grid-container {
+  display: grid;
+  justify-content: center;
+  }
+  .grid-containere {
+    display: grid;
+    margin-left: 25%;
+    }
+#descripcion { 
+  width: 98%;
+  height: 100%;
+  grid-area: 3 / 3 / 4 / 1;
+    
+   }
+.grid-input {
+  align-items: center;
+   margin-left: 20%;
+}
+.titulo,
+.insti,
+.fini,
+.ffin {
+  text-align: center;
+  margin-left: 20%;
+  width: var(--ancho-input-texto);
+}
+button.cv {
+  text-decoration: none;
+  font-weight: bold;
+  padding: var(--padding-general);
+  border-radius: var(--radio-borde-general);
+  font-family: var(--fuente-principal);
+  font-size: var(--tamano-fuente-p);
+  width: var(--ancho-logose);
+  border: 2px solid var(--color-terciario);
+  background-color: var(--color-secundario);
+  color: var(--color-terciario);
+  margin-left: 0;
+  height: 5%;
+  width: var(--ancho-button-cv);
+  margin-top: var(--margen-general);
+  margin-bottom: var(--margen-general);
+}
+button.cv:hover {
+  background-color: var(--color-terciario);
+  border: 2px solid var(--color-secundario);
+  color: var(--color-secundario);
+}
+.btn {
+  background-color: var(--color-secundario);
+  color: var(--color-terciario);
+  padding: var(--padding-general);
+  border-radius: var(--radio-borde-general);
+  cursor:pointer;
+}
+.btncv {
+  text-decoration: none;
+  font-weight: bold;
+  padding: var(--padding-general);
+  border-radius: var(--radio-borde-general);
+  font-family: var(--fuente-principal);
+  font-size: var(--tamano-fuente-p);
+  width: var(--ancho-logose);
+  border: 2px solid var(--color-terciario);
+  background-color: var(--color-secundario);
+  color: var(--color-terciario);
+  margin-left: 0;
+  height: 5%;
+  width: var(--ancho-button-cv);
+  margin-top: var(--margen-general);
+  margin-bottom: var(--margen-general);
+}
+.btncv:hover {
+  background-color: var(--color-terciario);
+  border: 2px solid var(--color-secundario);
+  color: var(--color-secundario);
+}
+.step-form {
+  display: none;
+}
+
+.step-form.active {
+  display: block;
+}
+
+@media (max-width: 600px) {
+  label {
+    font-size: var(--tamano-fuente-h3);
+  }
+}
+
+.login-container {
+  width: var(--ancho-input-texto);
+  padding: var(--padding-general);
+  background-color: var(--color-quinario);
+  margin: 0 auto;
+  margin-top: var(--margen-general);
+  border-radius: var(--radio-borde-general);
+}
+
+.login-container label {
+  font-weight: bold;
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"] {
+  width: 100%;
+  padding: var(--padding-general);
+  margin: var(--margen-general) 0;
+  display: inline-block;
+  border: 1px solid var(--color-octonario);
+  box-sizing: border-box;
+  border-radius: var(--radio-borde-general);
+}
+
+.login-container input[type="text"]:focus,
+.login-container input[type="password"]:focus {
+    outline: none;
+    border-color: var(--color-secundario);
+    box-shadow: 0px 0px 5px var(--color-secundario);
+}
+
+.login-container button {
+    width: 100%;
+    padding: var(--padding-general);
+    background-color: var(--color-terciario);
+    color: var(--color-secundario);
+    border-color: var(--color-secundario);
+    cursor: pointer;
+    border-radius: var(--radio-borde-general);
+    margin-bottom: var(--margen-general);
+}
+.login-container button:hover {
+    background-color: var(--color-secundario);
+    border: 2px solid var(--color-terciario);
+    color: var(--color-terciario);
+  }
+  
+a {
+  display: block;
+  color: var(--color-secundario);
+  text-align: center;
+  text-decoration: none;
+}
+.cuenta {
+  color:var(--color-secundario);
+  text-decoration: none;
+  margin-bottom: 2%;
+}
+
+.olvidaste {
+  color:var(--color-secundario);
+  text-decoration: none;
+  margin-top: var(--margen-general);
+}
+@media (max-width: 600px) {
+  .login-container,
+  .cuenta,
+  .olvidaste,
+  a {
+    width: 90%;
+    padding: var(--padding-general);
+    margin-top: var(--margen-general);
+  }
+
+  .login-container input[type="text"],
+  .login-container input[type="password"] {
+    width: 90%;
+  }
+
+  .login-container button {
+    width: 50%;
+    margin-right: 15px;
+  }
+}
+.recuperar-container {
+  width: 100%;
+  padding: var(--padding-general);
+  margin: var(--margen-general) 0;
+  display: inline-block;
+  box-sizing: border-box;
+  border-radius: var(--radio-borde-general);
+  margin-top: var(--margen-general);
+}
+
+.recupera button {
+  width: 15%;
+  padding: var(--padding-general);
+  background-color: var(--color-terciario);
+  color: var(--color-secundario);
+  border-color: var(--color-secundario);
+  cursor: pointer;
+  border-radius: var(--radio-borde-general);
+  margin-bottom: 12.6%;
+  margin-top: var(--margen-general);
+  
+}
+.recupera button:hover {
+  background-color: var(--color-secundario);
+  border: 2px solid var(--color-terciario);
+  color: var(--color-terciario);
+}
+
+.empleos-container {
+  width: 90%;
+  margin: 0 auto;
+  padding: var(--padding-general);
+  background-color: var(--color-terciario);
+  border-radius: var(--radio-borde-general);
+}
+
+#app h1 {
+  font-size:var(--tamano-fuente-h1-banner);
+  color:var(--color-principal); 
+  text-align: center; 
+  font-family: var(--fuente-principal)
+}
+#formEmpleo input[type="text"],
+#formEmpleo textarea,
+#formEmpleo input[type="date"] {
+  width: 30%;
+  padding: var(--padding-general);
+  margin-bottom: var(--margen-general);
+  box-sizing: border-box;
+  border-radius: var(--radio-borde-general);
+  border: 1px solid var(--color-novenario);
+  color: var(--color-octonario);
+}
+
+#formEmpleo button {
+  padding: var(--padding-general);
+  background-color: var(--color-secundario);
+  color: var(--color-terciario);
+  border: 2px solid var(--color-secundario);
+  cursor: pointer;
+  font-size: var(--tamano-fuente-p);
+  border-radius: var(--radio-borde-general);
+  display: block;
+  margin: 0 auto;
+
+}
+#formEmpleo button:hover {
+  background-color: var(--color-cuaternario);
+} 
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: var(--margen-general);
+}
+
+table th,
+table td {
+  padding: var(--padding-general);
+  border: 1px solid var(--color-novenario);
+  text-align: center;
+}
+
+table th {
+  background-color: var(--color-principal);
+  color: var(--color-terciario);
+}
+
+table td button {
+  padding: var(--padding-general);
+  cursor: pointer;
+  font-size: var(--tamano-fuente-p);
+  border-radius: var(--radio-borde-general);
+  background-color: var(--color-terciario);
+  color: var(--color-secundario);
+  border: 2px solid var(--color-secundario);
+}
+
+table td button:hover {
+  background-color: var(--color-secundario);
+  color: var(--color-terciario);
+}
+
+#modalActualizar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+}
+
+#formActualizar {
+  background-color: var(--color-terciario);
+  padding: var(--padding-general);
+  width: 70%;
+  border-radius: var(--radio-borde-general);
+  box-sizing: border-box; 
+}
+
+#formActualizar input[type="date"],
+#formActualizar input[type="text"],
+#formActualizar textarea {
+  width: 30%;
+  padding: var(--padding-general);
+  margin-bottom: var(--margen-general);
+  box-sizing: border-box;
+  border-radius: var(--radio-borde-general);
+  border: 2px solid var(--color-novenario);
+  color: var(--color-octonario);
+}
+
+@media (max-width: 600px) {
+  
+  .empleos-container {
+      width: 100%;
+  }
+
+  #formEmpleo input[type="text"],
+  #formEmpleo textarea {
+      width: 100%;
+  }
+
+  
+  table {
+      width: 100%;
+  }
+
+  #formActualizar {
+      width: 90%;
+  }
+}
+
+input[type="checkbox"] {
+  width: 20px; 
+  height: 20px; 
+}
+
+input[type="checkbox"]:checked {
+  background-color: var(--color-secundario)!important
+}
