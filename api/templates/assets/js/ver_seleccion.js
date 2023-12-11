@@ -32,3 +32,6 @@ window.onload = function() {
       localStorage.removeItem('cargarEmpleos'); 
   }
 }
+document.getElementById('enviar-cv').addEventListener('click', function() {
+  window.location.href = '../index.html';
+});

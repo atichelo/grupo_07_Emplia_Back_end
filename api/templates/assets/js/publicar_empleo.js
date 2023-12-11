@@ -90,7 +90,7 @@ function actualizarEmpleo() {
         console.error('El id es null');
         return;
     }
-    // Obtener los valores de los campos de entrada de la ventana modal
+   
     const nombre_empresa = document.getElementById('update_nombre_empresa').value;
     const area = document.getElementById('update_area').value;
     const nombre_puesto = document.getElementById('update_nombre_puesto').value;
@@ -121,5 +121,13 @@ function actualizarEmpleo() {
         console.log(data);
         cerrarVentanaModal();
     })
+    .catch(error => console.error('Error:', error));
+}
+function eliminarEmpleo(id) {
+    fetch(`http://localhost:5000/empleos/${id}`, {
+        method: 'DELETE'
+    })
+    .then(response => response.json())
+    .then(data => console.log(data))
     .catch(error => console.error('Error:', error));
 }
