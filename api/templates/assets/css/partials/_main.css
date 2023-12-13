@@ -74,13 +74,13 @@ button.icono-registro img {
 .continuarBtn1 {
   appearance: auto;
   user-select: none;
-  background-color: var(--color-terciario); /* Cambia el color de fondo según tus preferencias */
+  background-color: var(--color-terciario); 
   color: var(--color-secundario);
-  padding: var(--padding-general) 20px; /* Ajusta el padding */
+  padding: var(--padding-general) 20px; 
   border: 2px solid var(--color-secundario);
   border-radius: var(--radio-borde-general);
   font-size: var(--tamano-fuente-p);
-  cursor: pointer; /* Cambia el cursor al pasar por encima del botón */
+  cursor: pointer; 
   text-decoration: none;
   font-weight: bold;
   font-family: var(--fuente-principal);
@@ -179,15 +179,15 @@ button.icono-registro img {
   background-color: var(--color-terciario);
   color: var(--color-octonario);
   cursor: pointer;
-  margin-right: var(--margen-general); /* Agregar margen derecho solo a "Puesto" */
+  margin-right: var(--margen-general); 
   display: flex;
-  align-items: center; /* Centrar el texto verticalmente */
+  align-items: center; 
   background-repeat: no-repeat;
   background-size: 20px;
   background-position: 5% center;
   text-align: center;
   justify-content: center;
-  appearance: none; /* Elimina el estilo predeterminado del navegador */
+  appearance: none; 
 }
 
 .location-select {

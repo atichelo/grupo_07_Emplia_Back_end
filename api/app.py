@@ -163,7 +163,7 @@ def recuperar():
     msg['From'] = correo
     msg['To'] = email
     msg['Subject'] = "Recuperar contraseña"
-    body = "Para recuperar tu contraseña sigue el siguiente link: pages/nvo-psw.html"
+    body = "Para recuperar tu contraseña sigue el siguiente link: https://incandescent-banoffee-64d4c5.netlify.app/pages/ingresar"
     msg.attach(MIMEText(body, 'plain'))
 
     # Envia el correo
